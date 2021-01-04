@@ -18,11 +18,12 @@ function wait(ms) {
 }
 
 /**
- * N.B: we cannot use LocalAuthentication in the Expo client
- * in a real app we would call
- * LocalAuthentication.authenticateAsync({ disableDeviceFallback: true })
+ * In a real app we would access some Keychain/Keystore protected resource
+ * we could also simulate the scenario with LocalAuthentication.authenticateAsync({ disableDeviceFallback: true })
+ * 
+ * N.B: Beware of tampering! https://blog.mindedsecurity.com/2020/07/implementing-secure-biometric.html
  */
-const authenticateAsync = async () => {
+const accessKeychainResource = async () => {
   await wait(2000);
   return { success: true };
 };
@@ -31,18 +32,17 @@ function AuthorizationBiometricScreen({ navigation }) {
   const [state, send, service] = useContext(PaymentAuthorizationMachineContext);
 
   useEffect(() => {
-    authenticateAsync()
+    accessKeychainResource()
       .then(({ success }) => {
         send(success ? "KEYCHAIN_ACCESS_OK" : "KEYCHAIN_ACCESS_KO");
       })
-      // handle the case in which we get an error from LocalAuthentication.authenticateAsync
+      // handle the case in which we get an error from accessKeychainResource
       .catch(() => {
         send("KEYCHAIN_ACCESS_KO");
       });
 
     return Platform.select({
-      // in a real app, we would need to cancel authentication
-      // android: () => LocalAuthentication.cancelAuthenticate(),
+      // in a real app, we may need to cancel authentication
       android: () => {},
       ios: () => {},
     });

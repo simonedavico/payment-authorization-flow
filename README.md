@@ -4,6 +4,8 @@ This repository implements an example payment authorization flow for a banking a
 
 It is provided as example to [this series of blog posts](https://medium.com/welld-tech/untangle-complex-flows-in-your-react-native-app-with-xstate-1b11d0b8a91f). 
 
+N.B: **this is not production ready!** It is just meant as an example of how to integrate XState and React Native/React Navigation;
+
 # Project Structure
 
 The project is an Expo Managed project initialised with the Expo CLI.
@@ -33,6 +35,6 @@ Refer to the [instructions](https://docs.expo.io/workflow/development-mode/) for
 
 # Notes
 
-**This implementation is not production ready!** It is just meant as an example of how to integrate XState and React Native/React Navigation.
+- On Android, you would probably want to disable the back hardware button for some screens of the flow.
 
 
