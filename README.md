@@ -1,4 +1,4 @@
-# React Navigation <-> XState integration
+# XState <-> React Navigation integration
 
 This repository implements an example payment authorization flow for a banking app implemented with React Native, React Navigation and XState.
 
@@ -23,6 +23,13 @@ App.js
 - `paymentauthorization/screens/`: payment authorization flow screens;
 - `paymentauthorization/machine.js`: XState state machine implementation;
 - `App.js`: main App file
+
+# Building and running the app
+
+Refer to the [instructions](https://docs.expo.io/workflow/development-mode/) for managed workflow in the Expo docs.
+
+- Run on Android emulator: `npm run android`
+- Run on iOS simulator: `npm run ios`
 
 # Notes
 
