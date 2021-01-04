@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 /**
@@ -10,8 +10,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
  */
 function AuthorizationDeclinedScreen({ navigation }) {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Text>Payment authorization has been declined.</Text>
         <Text>Do not recognise this payment?</Text>
         <Button title="Contact our help center" />
@@ -20,5 +20,13 @@ function AuthorizationDeclinedScreen({ navigation }) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 export default AuthorizationDeclinedScreen;
