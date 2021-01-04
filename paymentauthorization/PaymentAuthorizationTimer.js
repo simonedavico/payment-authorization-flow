@@ -17,7 +17,7 @@ function PaymentAuthorizationTimer() {
     });
 
     return subscription.unsubscribe;
-  }, [service]);
+  }, [service, navigation]);
 
   return state.context.expiresOn ? (
     <Timer expiresOn={state.context.expiresOn} />

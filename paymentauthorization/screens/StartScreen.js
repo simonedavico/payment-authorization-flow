@@ -25,7 +25,7 @@ function StartScreen({ navigation }) {
     });
 
     return subscription.unsubscribe;
-  }, [service]);
+  }, [service, navigation]);
 
   const isLoading =
     state.matches("checkPrerequisites") ||

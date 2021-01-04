@@ -46,7 +46,7 @@ function AuthorizationBiometricScreen({ navigation }) {
       android: () => {},
       ios: () => {},
     });
-  }, []);
+  }, [send]);
 
   useEffect(() => {
     const subscription = service.subscribe((state) => {
@@ -64,7 +64,7 @@ function AuthorizationBiometricScreen({ navigation }) {
     });
 
     return subscription.unsubscribe;
-  }, [service]);
+  }, [service, navigation]);
 
   const isLoading = state.matches("authorizingPayment");
 

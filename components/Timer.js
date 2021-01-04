@@ -9,7 +9,7 @@ function Timer({ expiresOn }) {
       setNow(Date.now());
     }, 1000);
     return () => clearInterval(countdown);
-  });
+  }, []);
 
   return (
     <View style={styles.container}>
